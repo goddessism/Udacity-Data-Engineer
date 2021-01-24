@@ -4,6 +4,7 @@ ETL Project for Sparkify
 Sparkify team is now loading json files with their songs infromation data and log data.
 They want to prepare a new method to search quickly and analyze smoothly even the data become more bigger. 
 This project is designed to accomplish the goal with codes.
+
 Introduction
 =============
 ----------------------------------------------
