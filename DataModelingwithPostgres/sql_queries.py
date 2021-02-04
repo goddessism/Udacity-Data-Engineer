@@ -59,7 +59,7 @@ songplay_table_insert = (""" INSERT INTO songplays (
                             artist_id, 
                             session_id, 
                             location, 
-                            user_agent) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) 
+                            user_agent) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (songplay_id) DO NOTHING 
 """)
 
 user_table_insert = (""" INSERT INTO users (
@@ -67,7 +67,7 @@ user_table_insert = (""" INSERT INTO users (
                             first_name, 
                             last_name, 
                             gender, 
-                            level) VALUES (%s, %s, %s, %s, %s) ON CONFLICT (user_id) DO NOTHING
+                            level) VALUES (%s, %s, %s, %s, %s) ON CONFLICT (user_id) DO UPDATE SET level = (excluded.level)
 """)
 
 song_table_insert = (""" INSERT INTO songs (
