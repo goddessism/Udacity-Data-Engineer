@@ -41,7 +41,7 @@ artist_table_create = (""" CREATE TABLE artists (
                             longitude numeric)""" )
 
 time_table_create = (""" CREATE TABLE time (
-                            start_time time, 
+                            start_time time PRIMARY KEY, 
                             hour int, 
                             day int, 
                             week int, 
@@ -93,7 +93,7 @@ time_table_insert = (""" INSERT INTO time (
                             week, 
                             month, 
                             year, 
-                            weekday) VALUES (%s, %s, %s, %s, %s, %s, %s)
+                            weekday) VALUES (%s, %s, %s, %s, %s, %s, %s) ON CONFLICT (start_time) DO NOTHING
 """)
 
 # FIND SONGS
